@@ -1,53 +1,55 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
-.navContainer{
+.navContainer {
   display: flex;
   justify-content: space-between;
   align-content: space-between;
   padding: 8px;
+  /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.177); */
 }
-.logo{
+.logo {
   height: 40px;
 }
-.toggle{
+.toggle {
   border: transparent;
   background: transparent;
   font-size: 1.5rem;
   color: rgba(19, 19, 19, 0.907);
 }
-.toggle:hover{
+.toggle:hover {
   transform: rotate(90deg);
   transition: all ease-in-out 0.4s;
   cursor: pointer;
 }
-.linksContainer{
+.linksContainer {
   height: 0;
   overflow: hidden;
+  box-shadow: 3px black;
   transition: all ease-in-out 0.4s;
-} 
-.showLinks{
+  box-shadow: 1px 0.5px 5px rgba(0, 0, 0, 0.177);
+}
+.showLinks {
   height: 170px;
 }
 
-
-li{
+li {
   list-style: none;
 }
-li a{
+li a {
   text-decoration: none;
   color: black;
   display: block;
   text-transform: capitalize;
   padding: 8px 16px;
-  background-color: rgb(197, 226, 251);
+
   transition: all ease-in-out 0.3s;
 }
-li a:hover{
+li a:hover {
   background-color: rgba(75, 224, 244, 0.894);
   padding: 8px;
 }
-.socialLinks{
+.socialLinks {
   display: none;
 }

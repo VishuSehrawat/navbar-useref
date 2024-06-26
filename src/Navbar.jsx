@@ -1,29 +1,39 @@
 import React from "react";
 import { links, social } from "./data";
 import logo from "./assets/logo.svg";
-import {FaBars} from "react-icons/fa";
-import { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { useState, useRef } from "react";
 
 const Navbar = () => {
-
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
+  const linksContainerRef = useRef(null);
+  const linksRef = useRef(null);
 
   const toggleClick = () => {
-    setIsClicked(!isClicked)
-  }
-  console.log(getBoundingClientRect())
+    setIsClicked(!isClicked);
+  };
+
+  const linkStyles = {
+    height: isClicked
+      ? `${linksRef.current.getBoundingClientRect().height}px`
+      : "0px",
+  };
 
   return (
     <nav>
       <div className="navbar">
         <div className="navContainer">
           <img src={logo} alt="logo" className="logo" />
-          <button className="toggle" onClick={()=>{setIsClicked(!isClicked)}}>
+          <button className="toggle" onClick={toggleClick}>
             <FaBars />
           </button>
         </div>
-        <div className={isClicked ?'linksContainer showLinks' : 'linksContainer'}>
-          <ul>
+        <div
+          className="linksContainer"
+          ref={linksContainerRef}
+          style={linkStyles}
+        >
+          <ul ref={linksRef}>
             {links.map((link) => {
               return (
                 <li key={link.id}>
@@ -32,13 +42,13 @@ const Navbar = () => {
               );
             })}
           </ul>
-            </div>
-          <ul className="socialLinks">
-            {social.map((link) => {
-              return <li key={link.id}>{link.icon}</li>;
-            })}
-          </ul>
         </div>
+        <ul className="socialLinks">
+          {social.map((link) => {
+            return <li key={link.id}>{link.icon}</li>;
+          })}
+        </ul>
+      </div>
     </nav>
   );
 };
