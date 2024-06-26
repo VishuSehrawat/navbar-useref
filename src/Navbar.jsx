@@ -33,7 +33,7 @@ const Navbar = () => {
           ref={linksContainerRef}
           style={linkStyles}
         >
-          <ul ref={linksRef}>
+          <ul ref={linksRef} className="links">
             {links.map((link) => {
               return (
                 <li key={link.id}>
@@ -45,7 +45,7 @@ const Navbar = () => {
         </div>
         <ul className="socialLinks">
           {social.map((link) => {
-            return <li key={link.id}>{link.icon}</li>;
+            return <li key={link.id}><a href={link.url}>{link.icon}</a></li>;
           })}
         </ul>
       </div>
